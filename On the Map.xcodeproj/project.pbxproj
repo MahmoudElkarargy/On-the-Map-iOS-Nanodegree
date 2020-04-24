@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5523187F245394A5006F9648 /* StudentDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523187E245394A5006F9648 /* StudentDataResponse.swift */; };
 		55929E0A24525ED200B96570 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55929E0924525ED200B96570 /* AppDelegate.swift */; };
 		55929E0C24525ED200B96570 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55929E0B24525ED200B96570 /* SceneDelegate.swift */; };
 		55929E0E24525ED200B96570 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55929E0D24525ED200B96570 /* LoginViewController.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5523187E245394A5006F9648 /* StudentDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDataResponse.swift; sourceTree = "<group>"; };
 		55929E0624525ED200B96570 /* On the Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On the Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55929E0924525ED200B96570 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55929E0B24525ED200B96570 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				55D062D72452902E00D4F425 /* StudentsLocations.swift */,
 				55929E4824526B5600B96570 /* LoginResponse.swift */,
 				55D062D42452886600D4F425 /* LogoutResponse.swift */,
+				5523187E245394A5006F9648 /* StudentDataResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				55D062DE2452A9C400D4F425 /* PostNewPinViewController.swift in Sources */,
 				55D062DC2452970D00D4F425 /* StudentsModel.swift in Sources */,
 				55929E0E24525ED200B96570 /* LoginViewController.swift in Sources */,
+				5523187F245394A5006F9648 /* StudentDataResponse.swift in Sources */,
 				55D062E22452AF6F00D4F425 /* PostLocationRequest.swift in Sources */,
 				55929E0A24525ED200B96570 /* AppDelegate.swift in Sources */,
 				55D062D82452902E00D4F425 /* StudentsLocations.swift in Sources */,

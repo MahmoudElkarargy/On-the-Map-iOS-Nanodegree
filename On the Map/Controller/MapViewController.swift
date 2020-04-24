@@ -60,14 +60,15 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 self.tabBarController?.navigationController?.popViewController(animated: true)
             }else{
                 print("couldn't logout")
+                self.showAlert(title: "Error", message: "Couldn't logout")
             }
         })
     }
     
     func showAlert(title: String, message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        show(alertVC, sender: nil)
+        alertVC.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alertVC, animated: true)
     }
     
     func displayLocations(data: StudentsLocations?, error: Error?){
@@ -77,7 +78,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             displayPinsOnMap()
         }else{
             //error fetching data
-            print(error)
+            showAlert(title: "Error", message: "Cannot fetch data")
         }
     }
     
@@ -87,7 +88,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 }
 
 extension MapViewController{
-    
     //customize pins
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let reuseId = "pin"

@@ -36,6 +36,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonPressed(_ sender: Any) {
         //authenticate login
         loginActivityIndicator.startAnimating()
+
         User.login(username: self.emailTextField.text ?? "" , password: self.passwordTextField.text ?? "" , completionHandler: self.authenticateLogin(success:error:))
     }
     

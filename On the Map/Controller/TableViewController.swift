@@ -30,7 +30,7 @@ class TableViewController: UITableViewController {
             if success{
                 self.tabBarController?.navigationController?.popViewController(animated: true)
             }else{
-                print("couldn't logout")
+                self.showAlert(title: "Error", message: "Couldn't Logout")
             }
         })
     }
@@ -41,14 +41,14 @@ class TableViewController: UITableViewController {
             self.tableView.reloadData()
         }else{
             //error fetching data
-            print(error)
+            showAlert(title: "Error", message: "Cannot fetch data")
         }
     }
     
     func showAlert(title: String, message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        show(alertVC, sender: nil)
+        alertVC.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alertVC, animated: true)
     }
     
     @objc func addNewPin(){

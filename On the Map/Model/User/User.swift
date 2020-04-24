@@ -3,12 +3,13 @@ import Foundation
 import UIKit
 
 class User{
-    
+    static var userID = ""
     enum Endpoints{
         case session
         case signUP
         case studentsLocations
         case newLocation
+        case studentData
         var StringValue: String{
             switch self {
             case .session:
@@ -19,6 +20,8 @@ class User{
                 return "https://onthemap-api.udacity.com/v1/StudentLocation?limit=100?order=-updatedAt"
             case .newLocation:
                 return "https://onthemap-api.udacity.com/v1/StudentLocation"
+            case .studentData:
+                return "https://onthemap-api.udacity.com/v1/users/\(User.userID)"
             }
         }
         
@@ -57,7 +60,7 @@ class User{
     class func taskPOSTRequest <RequestType: Encodable, ResponseType: Decodable> (url: URL, responseType: ResponseType.Type, body: RequestType, completionHandler: @escaping (ResponseType?,Error?) -> Void){
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-//        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         let encoder = JSONEncoder()
         do{
@@ -98,8 +101,9 @@ class User{
     class func login(username: String, password: String, completionHandler: @escaping (Bool, Error?)->Void){
         let body = LoginRequest(user: Student(username: username, password: password))
         taskPOSTRequest(url: Endpoints.session.url, responseType: LoginResponse.self, body: body, completionHandler: { (response, error) in
-            if response != nil{
+            if let response = response{
                 //safely unwrapped response so login successfull
+                self.userID = response.account.key
                 completionHandler(true, nil)
             }else{
                 //unable to login throw error
@@ -144,6 +148,7 @@ class User{
                 let newData = data.subdata(in: range) /* subset response data! */
                 //fetched response successfuly
                 _ = try JSONDecoder().decode(LogoutResponse.self, from: newData)
+                self.userID = "" //reset user ID
                 DispatchQueue.main.async {
                     completionHandler(true, nil)
                 }

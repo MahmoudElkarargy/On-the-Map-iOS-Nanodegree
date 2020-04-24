@@ -1,11 +1,3 @@
-//
-//  PostNewPinViewController.swift
-//  On the Map
-//
-//  Created by Abdalla Elshikh on 4/24/20.
-//  Copyright © 2020 Abdalla Elshikh. All rights reserved.
-//
-
 import UIKit
 
 class PostNewPinViewController: UIViewController {
@@ -25,11 +17,13 @@ class PostNewPinViewController: UIViewController {
     }
     
     @IBAction func findLocationPressed(_ sender: Any) {
-        print("Find me")
+        //if location exists, show it on map
+        StudentsModel.postLocation = self.locationTextField.text ?? ""
+        StudentsModel.postWebsite = self.locationTextField.text ?? ""
+        performSegue(withIdentifier: "ShowLocation", sender: nil)
     }
     
     @IBAction func cancelPressed(_ sender: Any) {
-        print("Cancel")
         self.dismiss(animated: true, completion: nil)
     }
     
