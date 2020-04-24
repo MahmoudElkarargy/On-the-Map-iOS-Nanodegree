@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import MapKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, MKMapViewDelegate {
 
+    @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -17,7 +19,22 @@ class MapViewController: UIViewController {
     
     func configureView(){
         self.tabBarController?.navigationItem.hidesBackButton = true
-        self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: nil, action: nil)
+        self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutIsPressed))
+        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_addpin"), style: .plain, target: self, action: #selector(addNewPin))
     }
 
+    @objc func logoutIsPressed(){
+        User.logout(completionHandler: {
+            (success, error) in
+            if success{
+                self.tabBarController?.navigationController?.popViewController(animated: true)
+            }else{
+                print("couldn't logout")
+            }
+        })
+    }
+    
+    @objc func addNewPin(){
+        print("add new pin")
+    }
 }

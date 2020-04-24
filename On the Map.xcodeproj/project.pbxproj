@@ -21,6 +21,7 @@
 		55929E4724526B4900B96570 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55929E4624526B4900B96570 /* LoginRequest.swift */; };
 		55929E4924526B5600B96570 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55929E4824526B5600B96570 /* LoginResponse.swift */; };
 		55D062D124527EF400D4F425 /* LoginTextFieldsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D062D024527EF400D4F425 /* LoginTextFieldsDelegate.swift */; };
+		55D062D52452886600D4F425 /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D062D42452886600D4F425 /* LogoutResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		55929E4624526B4900B96570 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		55929E4824526B5600B96570 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		55D062D024527EF400D4F425 /* LoginTextFieldsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextFieldsDelegate.swift; sourceTree = "<group>"; };
+		55D062D42452886600D4F425 /* LogoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				55929E4824526B5600B96570 /* LoginResponse.swift */,
+				55D062D42452886600D4F425 /* LogoutResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				55929E0E24525ED200B96570 /* LoginViewController.swift in Sources */,
 				55929E0A24525ED200B96570 /* AppDelegate.swift in Sources */,
 				55929E4224526AE900B96570 /* User.swift in Sources */,
+				55D062D52452886600D4F425 /* LogoutResponse.swift in Sources */,
 				55929E0C24525ED200B96570 /* SceneDelegate.swift in Sources */,
 				55929E3E2452606900B96570 /* TableViewController.swift in Sources */,
 				55929E4724526B4900B96570 /* LoginRequest.swift in Sources */,

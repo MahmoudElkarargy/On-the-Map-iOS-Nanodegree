@@ -27,6 +27,12 @@ class LoginViewController: UIViewController {
         self.passwordTextField.delegate = fieldsDelegate
     }
 
+    @IBAction func signUp(_ sender: Any) {
+        //direct to udacity website
+        UIApplication.shared.open(User.Endpoints.signUP.url, options: [:], completionHandler: nil)
+    }
+    
+    
     @IBAction func loginButtonPressed(_ sender: Any) {
         //authenticate login
         loginActivityIndicator.startAnimating()
