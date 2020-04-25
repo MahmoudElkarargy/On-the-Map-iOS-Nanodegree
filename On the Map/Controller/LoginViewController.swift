@@ -46,7 +46,11 @@ class LoginViewController: UIViewController {
             User.getStudentData(completionHandler: parseStudentData(data:error:)) // get student data
             performSegue(withIdentifier: "AuthenticateLogin", sender: nil)
         }else{
-            self.loginFailedLabel.text = "Invalid Credentials"
+            if(StudentsModel.credentialsError){
+                self.loginFailedLabel.text = "Invalid Credentials"
+            }else{
+                self.loginFailedLabel.text = "Failed to Connect"
+            }
         }
     }
     

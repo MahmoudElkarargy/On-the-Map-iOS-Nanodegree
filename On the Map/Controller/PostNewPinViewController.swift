@@ -5,6 +5,7 @@ class PostNewPinViewController: UIViewController {
     let textFieldDelegate = LoginTextFieldsDelegate()
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var websiteTextField: UITextField!
+    @IBOutlet weak var geoCodingLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -13,6 +14,7 @@ class PostNewPinViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.geoCodingLabel.text = ""
     }
     
     func configureView(){
@@ -22,6 +24,7 @@ class PostNewPinViewController: UIViewController {
     
     @IBAction func findLocationPressed(_ sender: Any) {
         //if location exists, show it on map
+        self.geoCodingLabel.text = "Searching for location"
         StudentsModel.postLocation = self.locationTextField.text ?? ""
         StudentsModel.postWebsite = self.websiteTextField.text ?? ""
         performSegue(withIdentifier: "ShowLocation", sender: nil)

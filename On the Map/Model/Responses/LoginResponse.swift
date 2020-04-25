@@ -10,7 +10,10 @@ struct Session: Codable {
     let id: String
     let expiration: String
 }
-struct LoginResponse: Codable {
+struct LoginResponse: Codable, LocalizedError {
     let account: Account
     let session: Session
+    var errorDescription: String?{
+        return "Invalid credentials"
+    }
 }

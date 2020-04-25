@@ -82,7 +82,8 @@ class User{
         }
         let task = URLSession.shared.dataTask(with: request, completionHandler: {(data,response,error) in
             guard var data = data else{
-                //cannot fetch response, throw error
+                //cannot fetch response, throw server error
+                StudentsModel.credentialsError = false //server error
                 DispatchQueue.main.async {
                     completionHandler(nil, error)
                 }
@@ -99,7 +100,8 @@ class User{
                     completionHandler(response, nil)
                 }
             }catch{
-                //unable to parse response, throw error
+                //unable to parse response, throw credentials error
+                StudentsModel.credentialsError = true //credentials error
                 DispatchQueue.main.async {
                     completionHandler(nil, error)
                 }
@@ -232,7 +234,7 @@ class User{
                     completionHandler(true, nil)
                 }
             }catch{
-                //couldn't fetch response, throw error
+                //couldn't fetch response, throw server error
                 DispatchQueue.main.async {
                     completionHandler(false, error)
                 }

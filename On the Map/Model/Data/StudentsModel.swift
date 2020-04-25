@@ -1,6 +1,7 @@
 import Foundation
 
 class StudentsModel{
+    static var credentialsError = false
     static var data = [StudentData]()
     static var currentStudentData: StudentDataResponse?
     static var postLocation = ""
