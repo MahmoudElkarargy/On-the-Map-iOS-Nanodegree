@@ -9,10 +9,10 @@
 import UIKit
 
 class TableViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        
     }
     
     func configureView(){
@@ -20,9 +20,16 @@ class TableViewController: UITableViewController {
          self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutIsPressed))
          self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_addpin"), style: .plain, target: self, action: #selector(addNewPin))
         //get locations
-        User.getStudentsLocations(completionHandler: displayLocations(data:error:))
+        self.refreshData()
+        //pull to refresh
+        self.refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl?.addTarget(self, action: #selector (refreshData), for: .valueChanged)
      }
 
+    @objc func refreshData(){
+        //refresh data in table
+        User.getStudentsLocations(completionHandler: displayLocations(data:error:))
+    }
     
     @objc func logoutIsPressed(){
         User.logout(completionHandler: {
@@ -39,6 +46,7 @@ class TableViewController: UITableViewController {
         if let data = data{
             StudentsModel.data = data.results
             self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
         }else{
             //error fetching data
             showAlert(title: "Error", message: "Cannot fetch data")
@@ -77,7 +85,6 @@ extension TableViewController{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //go to url
         let url = URL(string: StudentsModel.data[indexPath.row].mediaURL)!
-        print(url)
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }

@@ -23,14 +23,24 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         self.tabBarController?.navigationItem.hidesBackButton = true
         self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutIsPressed))
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_addpin"), style: .plain, target: self, action: #selector(addNewPin))
-        //get locations
+        refreshData()
+    }
+    
+    func refreshData(){
         User.getStudentsLocations(completionHandler: displayLocations(data:error:))
+    }
+    
+    @IBAction func refreshPressed(_ sender: Any) {
+        refreshData()
     }
     
     func displayPinsOnMap(){
         //parse data
+        //if there are pins remove them from map
+        if self.mapView.annotations.count > 0 {
+            self.mapView.removeAnnotations(self.mapView.annotations)
+        }
         let locations = StudentsModel.data
-        //create a variable for annotations
         var annotations = [MKPointAnnotation]()
         for dictionary in locations {
             let lat = CLLocationDegrees(dictionary.latitude)
@@ -43,7 +53,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             // Here we create the annotation and set its coordiate, title, and subtitle properties
             let annotation = MKPointAnnotation()
             annotation.coordinate = coordinate
-            print(annotation.coordinate)
             annotation.title = "\(first) \(last)"
             annotation.subtitle = mediaURL
             // Finally we place the annotation in an array of annotations.
@@ -51,6 +60,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
          }
          // When the array is complete, we add the annotations to the map.
         self.mapView.addAnnotations(annotations)
+        self.mapView.reloadInputViews()
     }
 
     @objc func logoutIsPressed(){
@@ -59,8 +69,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             if success{
                 self.tabBarController?.navigationController?.popViewController(animated: true)
             }else{
-                print("couldn't logout")
-                self.showAlert(title: "Error", message: "Couldn't logout")
+                self.showAlert(title: "Server Error", message: "Couldn't logout")
             }
         })
     }
@@ -78,7 +87,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             displayPinsOnMap()
         }else{
             //error fetching data
-            showAlert(title: "Error", message: "Cannot fetch data")
+            showAlert(title: "Server Error", message: "Cannot fetch data")
         }
     }
     
@@ -96,6 +105,7 @@ extension MapViewController{
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView?.isEnabled = true
             pinView!.canShowCallout = true
+            pinView?.animatesDrop = true
             pinView!.pinTintColor = .red
             pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             return pinView
@@ -108,7 +118,6 @@ extension MapViewController{
     
     // This delegate method is implemented to respond to taps. as to direct to media type
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        print("Tapped")
         if control == view.rightCalloutAccessoryView {
             let app = UIApplication.shared
             if let toOpen = view.annotation?.subtitle! {

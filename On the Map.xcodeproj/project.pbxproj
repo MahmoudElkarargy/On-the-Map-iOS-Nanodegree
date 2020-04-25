@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5512D5642453C85C003E744F /* PUTNewLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512D5632453C85C003E744F /* PUTNewLocationResponse.swift */; };
 		5523187F245394A5006F9648 /* StudentDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523187E245394A5006F9648 /* StudentDataResponse.swift */; };
+		552318812453ADF7006F9648 /* PostNewLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552318802453ADF7006F9648 /* PostNewLocationResponse.swift */; };
 		55929E0A24525ED200B96570 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55929E0924525ED200B96570 /* AppDelegate.swift */; };
 		55929E0C24525ED200B96570 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55929E0B24525ED200B96570 /* SceneDelegate.swift */; };
 		55929E0E24525ED200B96570 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55929E0D24525ED200B96570 /* LoginViewController.swift */; };
@@ -48,7 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5512D5632453C85C003E744F /* PUTNewLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PUTNewLocationResponse.swift; sourceTree = "<group>"; };
 		5523187E245394A5006F9648 /* StudentDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDataResponse.swift; sourceTree = "<group>"; };
+		552318802453ADF7006F9648 /* PostNewLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNewLocationResponse.swift; sourceTree = "<group>"; };
 		55929E0624525ED200B96570 /* On the Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On the Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55929E0924525ED200B96570 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55929E0B24525ED200B96570 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,9 +131,9 @@
 			children = (
 				55929E0924525ED200B96570 /* AppDelegate.swift */,
 				55929E0B24525ED200B96570 /* SceneDelegate.swift */,
-				55D062CF24527EAE00D4F425 /* View */,
 				55929E4024526AC700B96570 /* Model */,
 				55929E3A24525F1400B96570 /* Controller */,
+				55D062CF24527EAE00D4F425 /* View */,
 				55929E3924525EF800B96570 /* Assets */,
 				55929E1724525ED800B96570 /* Info.plist */,
 			);
@@ -179,10 +183,10 @@
 		55929E4024526AC700B96570 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				55929E4324526B1300B96570 /* User */,
 				55D062D62452901400D4F425 /* Data */,
 				55929E4524526B3400B96570 /* Responses */,
 				55929E4424526B2400B96570 /* Requests */,
-				55929E4324526B1300B96570 /* User */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -211,6 +215,8 @@
 				55929E4824526B5600B96570 /* LoginResponse.swift */,
 				55D062D42452886600D4F425 /* LogoutResponse.swift */,
 				5523187E245394A5006F9648 /* StudentDataResponse.swift */,
+				552318802453ADF7006F9648 /* PostNewLocationResponse.swift */,
+				5512D5632453C85C003E744F /* PUTNewLocationResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -364,6 +370,7 @@
 			files = (
 				55D062D124527EF400D4F425 /* LoginTextFieldsDelegate.swift in Sources */,
 				55D062DE2452A9C400D4F425 /* PostNewPinViewController.swift in Sources */,
+				5512D5642453C85C003E744F /* PUTNewLocationResponse.swift in Sources */,
 				55D062DC2452970D00D4F425 /* StudentsModel.swift in Sources */,
 				55929E0E24525ED200B96570 /* LoginViewController.swift in Sources */,
 				5523187F245394A5006F9648 /* StudentDataResponse.swift in Sources */,
@@ -378,6 +385,7 @@
 				55929E4724526B4900B96570 /* LoginRequest.swift in Sources */,
 				55929E4924526B5600B96570 /* LoginResponse.swift in Sources */,
 				55929E3C2452605D00B96570 /* MapViewController.swift in Sources */,
+				552318812453ADF7006F9648 /* PostNewLocationResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

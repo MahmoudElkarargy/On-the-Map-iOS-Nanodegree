@@ -11,6 +11,10 @@ class PostNewPinViewController: UIViewController {
         self.configureView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    }
+    
     func configureView(){
         self.locationTextField.delegate = textFieldDelegate
         self.websiteTextField.delegate = textFieldDelegate
@@ -19,7 +23,7 @@ class PostNewPinViewController: UIViewController {
     @IBAction func findLocationPressed(_ sender: Any) {
         //if location exists, show it on map
         StudentsModel.postLocation = self.locationTextField.text ?? ""
-        StudentsModel.postWebsite = self.locationTextField.text ?? ""
+        StudentsModel.postWebsite = self.websiteTextField.text ?? ""
         performSegue(withIdentifier: "ShowLocation", sender: nil)
     }
     

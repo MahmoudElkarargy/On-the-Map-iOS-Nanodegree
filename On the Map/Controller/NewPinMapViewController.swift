@@ -16,7 +16,48 @@ class NewPinMapViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func finishPressed(_ sender: Any) {
         //post new pin, add it to data and go back to map
-        self.dismiss(animated: true, completion: nil)
+        postLocation()
+    }
+    
+    func postLocation(){
+        //check if location doesn't exist POST it, if it does PUT it
+        if StudentsModel.currentStudentData?.location == nil{
+            StudentsModel.currentStudentData?.location = StudentsModel.postLocation
+        User.PostStudentLocation(uniqueKey: User.userID, firstName: StudentsModel.currentStudentData?.firstName ?? "", lastName: StudentsModel.currentStudentData?.lastName ?? "", mapString: StudentsModel.postLocation, mediaURL: StudentsModel.postWebsite, latitude: StudentsModel.postLatitude! , Longitude: StudentsModel.postLongitude! , completionHandler: {
+                (success, error) in
+                if !success{
+                    //show alert
+                    self.showAlert(title: "Error", message: "Can't post location")
+                }else{
+                    //dismiss
+                    self.dismiss(animated: true, completion: nil)
+            }
+            })
+        }else{
+            //if location exists PUT it
+            let alertVC = UIAlertController(title: "Location Exists", message: "Do you want to update existing location? ", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "Yes", style: .default, handler: handleExistingLocation(action:)))
+            alertVC.addAction(UIAlertAction(title: "Cancel", style: .default, handler:handleExistingLocation(action:)))
+            self.present(alertVC, animated: true)
+        }
+    }
+    
+    func handleExistingLocation(action: UIAlertAction){
+        //update existing location
+        if(action.title == "Yes"){
+            User.PUTStudentLocation(uniqueKey: User.userID, firstName: StudentsModel.currentStudentData?.firstName ?? "", lastName: StudentsModel.currentStudentData?.lastName ?? "", mapString: StudentsModel.postLocation, mediaURL: StudentsModel.postWebsite, latitude: StudentsModel.postLatitude!, Longitude: StudentsModel.postLongitude!, completionHandler: {
+                (success, error) in
+                if !success{
+                    //show alert
+                    self.showAlert(title: "Error", message: "Can't update location")
+                }else{
+                    //dismiss
+                    self.dismiss(animated: true, completion: nil)
+                }
+            })
+        }else{
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
 
@@ -59,6 +100,9 @@ extension NewPinMapViewController{
         //create a variable for annotations
         let lat = CLLocationDegrees(location.latitude)
         let long = CLLocationDegrees(location.longitude)
+        //update current student new location data
+        StudentsModel.postLatitude = lat
+        StudentsModel.postLongitude = long
         // The lat and long are used to create a CLLocationCoordinates2D instance.
         let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
         // Here we create the annotation and set its coordiate, title, and subtitle properties
@@ -66,7 +110,6 @@ extension NewPinMapViewController{
         annotation.coordinate = coordinate
         annotation.title = "\(StudentsModel.postLocation)"
         // Finally we place the annotation in an array of annotations.
-        print(annotation)
         self.mapView.addAnnotation(annotation)
         self.mapView.setCenter(coordinate, animated: true)
     }

@@ -36,19 +36,25 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonPressed(_ sender: Any) {
         //authenticate login
         loginActivityIndicator.startAnimating()
-
         User.login(username: self.emailTextField.text ?? "" , password: self.passwordTextField.text ?? "" , completionHandler: self.authenticateLogin(success:error:))
     }
     
     func authenticateLogin(success: Bool, error: Error?) -> Void {
         loginActivityIndicator.stopAnimating()
         if(success){
-            self.loginFailedLabel.text = ""
+            self.loginFailedLabel.text = "" //if there's any warning remove it
+            User.getStudentData(completionHandler: parseStudentData(data:error:)) // get student data
             performSegue(withIdentifier: "AuthenticateLogin", sender: nil)
         }else{
             self.loginFailedLabel.text = "Invalid Credentials"
         }
     }
     
+    func parseStudentData(data: StudentDataResponse?, error: Error?){
+        guard let data = data else {
+            return
+        }
+        StudentsModel.currentStudentData = data
+    }
 }
 
