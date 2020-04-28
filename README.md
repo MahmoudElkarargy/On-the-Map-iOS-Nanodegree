@@ -1,1 +1,1 @@
-# On-the-Map-iOS-Nanodegree
+# On the Map (iOS Nanodegree)
