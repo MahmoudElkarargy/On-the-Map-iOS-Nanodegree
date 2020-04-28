@@ -16,8 +16,6 @@
 		55929E1124525ED200B96570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55929E0F24525ED200B96570 /* Main.storyboard */; };
 		55929E1324525ED800B96570 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55929E1224525ED800B96570 /* Assets.xcassets */; };
 		55929E1624525ED800B96570 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55929E1424525ED800B96570 /* LaunchScreen.storyboard */; };
-		55929E2124525ED900B96570 /* On_the_MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55929E2024525ED900B96570 /* On_the_MapTests.swift */; };
-		55929E2C24525ED900B96570 /* On_the_MapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55929E2B24525ED900B96570 /* On_the_MapUITests.swift */; };
 		55929E3C2452605D00B96570 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55929E3B2452605C00B96570 /* MapViewController.swift */; };
 		55929E3E2452606900B96570 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55929E3D2452606900B96570 /* TableViewController.swift */; };
 		55929E4224526AE900B96570 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55929E4124526AE900B96570 /* User.swift */; };
@@ -62,11 +60,7 @@
 		55929E1524525ED800B96570 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55929E1724525ED800B96570 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55929E1C24525ED800B96570 /* On the MapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "On the MapTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		55929E2024525ED900B96570 /* On_the_MapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = On_the_MapTests.swift; sourceTree = "<group>"; };
-		55929E2224525ED900B96570 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55929E2724525ED900B96570 /* On the MapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "On the MapUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		55929E2B24525ED900B96570 /* On_the_MapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = On_the_MapUITests.swift; sourceTree = "<group>"; };
-		55929E2D24525ED900B96570 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55929E3B2452605C00B96570 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		55929E3D2452606900B96570 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		55929E4124526AE900B96570 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -110,8 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				55929E0824525ED200B96570 /* On the Map */,
-				55929E1F24525ED900B96570 /* On the MapTests */,
-				55929E2A24525ED900B96570 /* On the MapUITests */,
 				55929E0724525ED200B96570 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -138,24 +130,6 @@
 				55929E1724525ED800B96570 /* Info.plist */,
 			);
 			path = "On the Map";
-			sourceTree = "<group>";
-		};
-		55929E1F24525ED900B96570 /* On the MapTests */ = {
-			isa = PBXGroup;
-			children = (
-				55929E2024525ED900B96570 /* On_the_MapTests.swift */,
-				55929E2224525ED900B96570 /* Info.plist */,
-			);
-			path = "On the MapTests";
-			sourceTree = "<group>";
-		};
-		55929E2A24525ED900B96570 /* On the MapUITests */ = {
-			isa = PBXGroup;
-			children = (
-				55929E2B24525ED900B96570 /* On_the_MapUITests.swift */,
-				55929E2D24525ED900B96570 /* Info.plist */,
-			);
-			path = "On the MapUITests";
 			sourceTree = "<group>";
 		};
 		55929E3924525EF800B96570 /* Assets */ = {
@@ -393,7 +367,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55929E2124525ED900B96570 /* On_the_MapTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,7 +374,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55929E2C24525ED900B96570 /* On_the_MapUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
