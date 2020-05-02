@@ -31,4 +31,7 @@ On the Map consists of 5 view controllers:
   <img src="docs/AddNewLocation.png" width="149" height="300">
 </p>
 
-
+## Dependencies:
+- Apple UIKit
+- Apple MapKit
+- Udacity API
