@@ -8,27 +8,27 @@ On the Map consists of 5 view controllers:
 
 - Login View Controller:
 <p align="center">
-  <img src="docs/Login.png" width="149" height="300">
+  <img src="docs/Login.png" width="149" height="260">
 </p>
 
 - Map View Controller:
 <p align="center">
-  <img src="docs/MapView.png" width="149" height="300">
+  <img src="docs/MapView.png" width="149" height="260">
 </p>
 
 - Table View Controller:
 <p align="center">
-  <img src="docs/TableView.png" width="149" height="300">
+  <img src="docs/TableView.png" width="149" height="260">
 </p>
 
 - Add New Information View Controller:
 <p align="center">
-  <img src="docs/AddInfo.png" width="149" height="300">
+  <img src="docs/AddInfo.png" width="149" height="260">
 </p>
 
 - Confirm Location View Controller:
 <p align="center">
-  <img src="docs/AddNewLocation.png" width="149" height="300">
+  <img src="docs/AddNewLocation.png" width="149" height="260">
 </p>
 
 ## Dependencies:
